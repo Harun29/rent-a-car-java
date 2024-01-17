@@ -4,6 +4,7 @@ public class Vozilo {
     private String model;
     private int godiste;
     private double cijena;
+    private String registracija;
     private boolean rentano;
 
 //    Konstruktor
