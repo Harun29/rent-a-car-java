@@ -22,6 +22,9 @@ public class Vozilo {
   public String toString(){
     return this.proizvodjac + " " + this.model + " " + this.godiste + " " + this.cijena + " " + this.registracija + " " + this.rentano;
   }
+  public String registracija(){
+    return this.registracija;
+  }
 //  U
   public void updateField(String fieldName, Object value) {
     switch (fieldName) {
