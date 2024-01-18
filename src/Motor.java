@@ -1,8 +1,6 @@
 public class Motor extends Vozilo{
-
   private int brojTockova;
   private String tipMotora;
-
 //  C
   public Motor(String proizvodjac, String model, int godiste, double cijena, String registracija, int brojTockova, String tipMotora){
     super(proizvodjac, model, godiste, cijena, registracija);
