@@ -5,7 +5,8 @@ public class Main {
 
     auto.updateField("proizvodjac", "audi");
     auto.updateField("model", "a8");
-
-    System.out.println(auto);
+    Motor motor = new Motor("vw", "polo", 1999, 4600.0, "a54-f-569", 2, "naked");
+    motor.updateField("proizvodjac", "suzuki");
+    System.out.println(motor);
   }
 }

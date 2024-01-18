@@ -7,6 +7,8 @@ public class Vozilo {
   private boolean rentano;
 
 //  C
+
+  public Vozilo(){}
   public Vozilo(String proizvodjac, String model, int godiste, double cijena, String registracija){
     this.proizvodjac = proizvodjac;
     this.model = model;
