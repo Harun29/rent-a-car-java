@@ -15,6 +15,8 @@ public class Main {
     System.out.println(vozilo);
     User user = new User("harun", "harun@gmail.com");
     user.dodajAuto(auto);
+    user.izbrisiVozilo();
+    user.dodajAuto(motor);
     System.out.println(user);
   }
 }

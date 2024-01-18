@@ -1,7 +1,6 @@
 public class Automobil extends Vozilo{
   private int brojSjedista;
   private int brojVrata;
-
   //  C
   public Automobil(String proizvodjac, String model, int godiste, double cijena, String registracija, int brojSjedista, int brojVrata){
     super(proizvodjac, model, godiste, cijena, registracija);

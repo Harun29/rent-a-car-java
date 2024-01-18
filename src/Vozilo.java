@@ -5,9 +5,7 @@ public class Vozilo {
   private double cijena;
   private String registracija;
   private boolean rentano;
-
 //  C
-
   public Vozilo(){}
   public Vozilo(String proizvodjac, String model, int godiste, double cijena, String registracija){
     this.proizvodjac = proizvodjac;
@@ -50,6 +48,5 @@ public class Vozilo {
         throw new IllegalArgumentException("Invalid field name: " + fieldName);
     }
   }
-
 }
 

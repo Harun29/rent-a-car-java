@@ -26,5 +26,4 @@ public class Motor extends Vozilo{
         super.updateField(fieldName, value);
     }
   }
-
 }

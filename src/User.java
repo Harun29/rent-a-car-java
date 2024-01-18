@@ -3,16 +3,19 @@ public class User {
   private String email;
   private Vozilo iznajmljenoVozilo;
   private int brojIznajmljivanja;
+//  C
   public User(String punoIme, String email){
     this.punoIme = punoIme;
     this.email = email;
     this.iznajmljenoVozilo = null;
     this.brojIznajmljivanja = 0;
   }
+//  R
   @Override
   public String toString(){
     return this.punoIme + " " + this.email  + " " + this.iznajmljenoVozilo.registracija() + " " + this.brojIznajmljivanja;
   }
+//  U
   public void updateField(String fieldName, Object value) {
     switch (fieldName) {
       case "ime":
@@ -26,7 +29,14 @@ public class User {
     }
   }
   public void dodajAuto(Vozilo vozilo){
-    this.iznajmljenoVozilo = vozilo;
-    this.brojIznajmljivanja += 1;
+    if(this.iznajmljenoVozilo == null){
+      this.iznajmljenoVozilo = vozilo;
+      this.brojIznajmljivanja += 1;
+    }else{
+      System.out.println("Korisnik je vec iznajmio jedno auto!");
+    }
+  }
+  public void izbrisiVozilo(){
+    this.iznajmljenoVozilo = null;
   }
 }
