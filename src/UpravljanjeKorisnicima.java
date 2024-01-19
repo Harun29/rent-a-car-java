@@ -11,7 +11,6 @@ public class UpravljanjeKorisnicima {
   public void izbrisiKorisnika(int id) {
     korisnici.remove(id);
   }
-
   public void prikaziKorisnike(){
     korisnici.forEach(korisnik -> {
       System.out.println(korisnik);
@@ -19,7 +18,8 @@ public class UpravljanjeKorisnicima {
   }
   public User pronadjiKorisnika(String email) {
     return korisnici.stream()
-            .filter(korisnik -> korisnik.email.equals(email))
+            .filter(korisnik -> korisnik.email.equals(email
+            ))
             .findFirst()
             .orElse(null);
   }
@@ -29,10 +29,10 @@ public class UpravljanjeKorisnicima {
   public void izbrisiAutoKorisniku(int index){
     korisnici.get(index).izbrisiVozilo();
   }
-
   public int indexOf(User user) {
     return korisnici.indexOf(user);
   }
-
-//  UPDATE USER
+  public void updateUser(int index, String fieldToUpdate, Object newValue){
+    korisnici.get(index).updateField(fieldToUpdate, newValue);
+  }
 }

@@ -15,7 +15,7 @@ public class User {
 //  R
   @Override
   public String toString(){
-    return this.punoIme + " " + this.email  + " " + this.iznajmljenoVozilo.registracija() + " " + this.brojIznajmljivanja;
+    return this.punoIme + " " + this.email  + " " + this.iznajmljenoVozilo + " " + this.brojIznajmljivanja;
   }
 //  U
   public void updateField(String fieldName, Object value) {

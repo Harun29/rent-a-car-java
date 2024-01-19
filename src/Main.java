@@ -1,22 +1,41 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Main {
   public static void main(String[] args) {
 
-//    Vozilo auto = new Vozilo("vw", "polo", 1999, 4600.0, "a54-f-569");
+    UpravljanjeRezervacijama rezervacije = new UpravljanjeRezervacijama();
+    UpravljanjeKorisnicima korisnici = rezervacije.korisnici;
+    UpravljanjeVozilima vozila = rezervacije.vozila;
 
-//    auto.updateField("proizvodjac", "audi");
-//    auto.updateField("model", "a8");
-    Motor motor = new Motor("vw", "polo", 1999, 4600.0, "a54-f-569", 2, "naked");
-    motor.updateField("proizvodjac", "suzuki");
-    Automobil auto = new Automobil("vw", "polo", 1999, 4600.0, "a54-f-569", 4, 4);
-    auto.updateField("broj sjedista", 5);
-    Vozilo vozilo = new Vozilo("vw", "polo", 1999, 4600.0, "a54-f-569");
-    System.out.println(motor);
-    System.out.println(auto);
-    System.out.println(vozilo);
-    User user = new User("harun", "harun@gmail.com");
-    user.dodajAuto(auto);
-    user.izbrisiVozilo();
-    user.dodajAuto(motor);
-    System.out.println(user);
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("[K]orisnici");
+    System.out.println("[V]ozila");
+    System.out.println("[R]ezervacije");
+    System.out.print("Izaberi opciju: ");
+    String mainMenu = scanner.nextLine().toUpperCase();
+
+    String korisnikMenu;
+    String voziloMenu;
+    String rezervacijaMenu;
+
+    switch (mainMenu){
+      case("K"):
+        System.out.println("[P]rikazi korisnike");
+        System.out.println("[D]odaj korisnika");
+        System.out.print("Izaberite opciju: ");
+        korisnikMenu = scanner.nextLine().toUpperCase();
+      case("V"):
+        System.out.println("[P]rikazi vozilo");
+        System.out.println("[D]odaj vozilo");
+        System.out.print("Izaberite opciju: ");
+        voziloMenu = scanner.nextLine().toUpperCase();
+      case("R"):
+        System.out.println("[P]rikazi rezervacije");
+        System.out.println("[D]odaj rezervacije");
+        System.out.print("Izaberite opciju: ");
+        rezervacijaMenu = scanner.nextLine().toUpperCase();
+    }
+
   }
 }

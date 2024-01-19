@@ -27,6 +27,7 @@ public class UpravljanjeVozilima {
   public int indexOf(Vozilo vozilo){
     return vozila.indexOf(vozilo);
   }
-
-//  UPDATE VEHICLE
+  public void updateVozilo(int index, String fieldToUpdate, Object newValue){
+    vozila.get(index).updateField(fieldToUpdate, newValue);
+  }
 }

@@ -31,7 +31,7 @@ public class UpravljanjeRezervacijama {
   }
   public void prikaziRezervacije(){
     rezervacije.forEach(rezervacija -> {
-      System.out.println(rezervacije.indexOf(rezervacija) + " " + rezervacija);
+      System.out.println("[" + rezervacije.indexOf(rezervacija)+ "]" + " " + rezervacija);
     });
   }
 }
