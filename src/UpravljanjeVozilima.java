@@ -4,6 +4,9 @@ public class UpravljanjeVozilima {
   public void dodajVozilo(Vozilo vozilo){
     vozila.add(vozilo);
   }
+  public void izbrisiVozilo(String registracija) {
+    vozila.removeIf(vozilo -> !vozilo.registracija().equals(registracija));
+  }
   public void prikaziVozila(){
     vozila.forEach(vozilo -> {
       System.out.println(vozilo);

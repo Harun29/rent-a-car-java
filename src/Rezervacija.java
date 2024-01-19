@@ -14,4 +14,9 @@ public class Rezervacija {
     this.endDate = LocalDate.now().plusDays(brojDana);
   }
 
+  @Override
+  public String toString(){
+    return this.vozilo + " " + this.korisnik + " from: " + this.startDate + " to: " + this.endDate;
+  }
+
 }
