@@ -15,6 +15,8 @@ public class UpravljanjeRezervacijama {
 
     korisnici.dodajAutoKorisniku(indexOfUser, vozilo);
     vozila.autoRezervisano(indexOfVehicle);
+
+//    dodaj error za nepostojece registracije i usere
   }
   public void izbrisiRezervaciju(int id){
     rezervacije.remove(id);
