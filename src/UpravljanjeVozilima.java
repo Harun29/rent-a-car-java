@@ -4,8 +4,8 @@ public class UpravljanjeVozilima {
   public void dodajVozilo(Vozilo vozilo){
     vozila.add(vozilo);
   }
-  public void izbrisiVozilo(String registracija) {
-    vozila.removeIf(vozilo -> !vozilo.registracija().equals(registracija));
+  public void izbrisiVozilo(int id) {
+    vozila.remove(id);
   }
   public void prikaziVozila(){
     vozila.forEach(vozilo -> {
@@ -18,4 +18,15 @@ public class UpravljanjeVozilima {
             .findFirst()
             .orElse(null);
   }
+  public void autoRezervisano(int index){
+    vozila.get(index).updateField("rentano", true);
+  }
+  public void autoNijeRezervisano(int index){
+    vozila.get(index).updateField("rentano", false);
+  }
+  public int indexOf(Vozilo vozilo){
+    return vozila.indexOf(vozilo);
+  }
+
+//  UPDATE VEHICLE
 }

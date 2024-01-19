@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Vozilo {
   private String proizvodjac;
   private String model;
@@ -47,6 +49,14 @@ public class Vozilo {
       default:
         throw new IllegalArgumentException("Invalid field name: " + fieldName);
     }
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) return true;
+    if (obj == null || getClass() != obj.getClass()) return false;
+    Vozilo vozilo = (Vozilo) obj;
+    return Objects.equals(registracija, vozilo.registracija);
   }
 }
 

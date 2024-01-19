@@ -2,8 +2,8 @@ import java.time.LocalDate;
 
 public class Rezervacija {
 
-  private Vozilo vozilo;
-  private User korisnik;
+  public Vozilo vozilo;
+  public User korisnik;
   private LocalDate startDate;
   private LocalDate endDate;
 
@@ -16,7 +16,7 @@ public class Rezervacija {
 
   @Override
   public String toString(){
-    return this.vozilo + " " + this.korisnik + " from: " + this.startDate + " to: " + this.endDate;
+    return this.vozilo.registracija() + " " + this.korisnik.email + " from: " + this.startDate + " to: " + this.endDate;
   }
 
 }
