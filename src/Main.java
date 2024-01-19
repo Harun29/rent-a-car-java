@@ -17,23 +17,27 @@ public class Main {
       String mainMenu = scanner.nextLine().toUpperCase();
 
       if (mainMenu.equals("E")) {
-        break; // Exit the program
+        break;
       }
 
       String korisnikMenu = "";
       String voziloMenu = "";
       String rezervacijaMenu = "";
 
+      String korisnikMenuDva = "";
+      String voziloMenuDva = "";
+      String rezervacijaMenuDva = "";
+
       switch (mainMenu) {
         case "K":
           do {
-            // User Menu
+            // MENU KORISNIKA
             if(korisnikMenu.isEmpty()){
               System.out.println("[P]rikazi korisnike");
               System.out.println("[D]odaj korisnika");
+              System.out.println("[B]ack");
+              System.out.print("Izaberite opciju: ");
             }
-            System.out.println("[B]ack");
-            System.out.print("Izaberite opciju: ");
             korisnikMenu = scanner.nextLine().toUpperCase();
 
             switch (korisnikMenu) {
@@ -41,6 +45,26 @@ public class Main {
                 korisnici.prikaziKorisnike();
                 System.out.println("[A]zuriraj korisnika");
                 System.out.println("[I]zbrisi korisnika");
+                System.out.println("[B]ack");
+                korisnikMenuDva = scanner.nextLine().toUpperCase();
+                switch (korisnikMenuDva){
+                  case "A":
+                    System.out.print("redni broj korisnika: ");
+                    int index = scanner.nextInt();
+                    System.out.print("polje za update: ");
+                    scanner.nextLine();
+                    String fieldToUpdate = scanner.nextLine();
+
+                    System.out.print("nova vrijednost: ");
+                    Object newValue = scanner.nextLine();
+                    korisnici.updateUser(index, fieldToUpdate, newValue);
+                    break;
+                  case "I":
+                    System.out.print("redni broj korisnika: ");
+                    int id = scanner.nextInt();
+                    korisnici.izbrisiKorisnika(id);
+                    break;
+                }
                 break;
               case "D":
                 System.out.print("puno ime: ");
@@ -55,7 +79,7 @@ public class Main {
 
         case "V":
           do {
-            // Vehicle Menu
+            // MENU VOZILA
             System.out.println("[P]rikazi vozilo");
             System.out.println("[D]odaj vozilo");
             System.out.println("[B]ack");
@@ -67,18 +91,67 @@ public class Main {
                 vozila.prikaziVozila();
                 System.out.println("[A]zuriraj vozilo");
                 System.out.println("[I]zbrisi vozilo");
+                System.out.println("[B]ack");
+                voziloMenuDva = scanner.nextLine().toUpperCase();
+                switch (voziloMenuDva) {
+                  case "A":
+                    System.out.print("redni broj vozila: ");
+                    int index = scanner.nextInt();
+                    System.out.print("polje za update: ");
+                    String fieldToUpdate = scanner.nextLine();
+                    System.out.print("nova vrijednost: ");
+                    Object newValue = scanner.nextLine();
+                    vozila.updateVozilo(index, fieldToUpdate, newValue);
+                    break;
+                  case "I":
+                    System.out.print("redni broj vozila: ");
+                    int id = scanner.nextInt();
+                    vozila.izbrisiVozilo(id);
+                    break;
+                }
                 break;
               case "D":
                 System.out.println("[A]utomobil");
                 System.out.println("[M]otor");
+                System.out.println("[B]ack");
+                voziloMenuDva = scanner.nextLine().toUpperCase();
+                System.out.print("proizvodjac: ");
+                String proizvodjac = scanner.nextLine();
+                System.out.print("model: ");
+                String model = scanner.nextLine();
+                System.out.print("godiste: ");
+                int godiste = scanner.nextInt();
+                System.out.print("cijena: ");
+                double cijena = scanner.nextDouble();
+                System.out.print("registracija: ");
+                scanner.nextLine();
+                String registracija = scanner.nextLine();
+                switch (voziloMenuDva) {
+                  case "A":
+                    System.out.print("broj sjedista: ");
+                    int brojSjedista = scanner.nextInt();
+                    System.out.print("broj vrata: ");
+                    int brojVrata = scanner.nextInt();
+                    Automobil auto = new Automobil(proizvodjac, model, godiste, cijena, registracija, brojSjedista, brojVrata);
+                    vozila.dodajVozilo(auto);
+                    break;
+                  case "M":
+                    System.out.print("broj sjedista: ");
+                    int brojTockova = scanner.nextInt();
+                    System.out.print("broj vrata: ");
+                    String tipMotora = scanner.nextLine();
+                    Motor motor = new Motor(proizvodjac, model, godiste, cijena, registracija, brojTockova, tipMotora);
+                    vozila.dodajVozilo(motor);
+                    break;
+                }
                 break;
-            }
-          } while (!voziloMenu.equals("B"));
+              }
+            }while (!voziloMenu.equals("B"));
           break;
 
         case "R":
           do {
-            // Reservation Menu
+            // MENU REZERVACIJA
             System.out.println("[P]rikazi rezervacije");
             System.out.println("[D]odaj rezervacije");
             System.out.println("[B]ack");
@@ -89,6 +162,13 @@ public class Main {
               case "P":
                 rezervacije.prikaziRezervacije();
                 System.out.println("[I]zbrisi rezervaciju");
+                System.out.println("[B]ack");
+                rezervacijaMenuDva = scanner.nextLine().toUpperCase();
+                if(rezervacijaMenuDva.equals("I")){
+                  System.out.print("redni broj rezervacije: ");
+                  int index = scanner.nextInt();
+                  rezervacije.izbrisiRezervaciju(index);
+                }
                 break;
               case "D":
                 System.out.print("Registracija: ");
@@ -98,11 +178,6 @@ public class Main {
                 System.out.print("iznajmljuje se na: ");
                 int brojDana = scanner.nextInt();
                 rezervacije.dodajRezervaciju(registracija, rezervacijaEmail, brojDana);
-                break;
-              case "I":
-                System.out.print("ID rezervacije za brisanje: ");
-                int rezervacijaId = scanner.nextInt();
-                rezervacije.izbrisiRezervaciju(rezervacijaId);
                 break;
             }
           } while (!rezervacijaMenu.equals("B"));

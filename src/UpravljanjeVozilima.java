@@ -9,7 +9,7 @@ public class UpravljanjeVozilima {
   }
   public void prikaziVozila(){
     vozila.forEach(vozilo -> {
-      System.out.println(vozilo);
+      System.out.println("  "+ vozila.indexOf(vozilo) + ") " + vozilo);
     });
   }
   public Vozilo pronadjiVozilo(String registracija) {

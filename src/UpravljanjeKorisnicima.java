@@ -13,7 +13,7 @@ public class UpravljanjeKorisnicima {
   }
   public void prikaziKorisnike(){
     korisnici.forEach(korisnik -> {
-      System.out.println("["+ korisnici.indexOf(korisnik) + "]" + korisnik);
+      System.out.println("  "+ korisnici.indexOf(korisnik) + ") " + korisnik);
     });
   }
   public User pronadjiKorisnika(String email) {
