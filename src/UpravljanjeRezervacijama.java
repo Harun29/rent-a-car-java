@@ -6,17 +6,26 @@ public class UpravljanjeRezervacijama {
   public ArrayList<Rezervacija> rezervacije = new ArrayList<Rezervacija>();
   public void dodajRezervaciju(String registracija, String email, int brojDana){
     Vozilo vozilo = vozila.pronadjiVozilo(registracija);
-    int indexOfVehicle = vozila.indexOf(vozilo);
+    int indexOfVehicle = 9999;
+    if(vozilo != null){
+      indexOfVehicle = vozila.indexOf(vozilo);
+    }else{
+      System.out.println("------------Vozilo nije pronadjeno.------------------");
+    }
+    int indexOfUser = 9999;
     User user = korisnici.pronadjiKorisnika(email);
-    int indexOfUser = korisnici.indexOf(user);
+    if(user != null){
+      indexOfUser = korisnici.indexOf(user);
+    }else{
+      System.out.println("------------Korisnik nije pronadjen.------------------");
+    }
 
-    Rezervacija rezervacija = new Rezervacija(vozilo, user, brojDana);
-    rezervacije.add(rezervacija);
-
-    korisnici.dodajAutoKorisniku(indexOfUser, vozilo);
-    vozila.autoRezervisano(indexOfVehicle);
-
-//    dodaj error za nepostojece registracije i usere
+    if(indexOfUser != 9999 && indexOfVehicle != 9999){
+      Rezervacija rezervacija = new Rezervacija(vozilo, user, brojDana);
+      rezervacije.add(rezervacija);
+      korisnici.dodajAutoKorisniku(indexOfUser, vozilo);
+      vozila.autoRezervisano(indexOfVehicle);
+    }
   }
   public void izbrisiRezervaciju(int id){
     rezervacije.remove(id);

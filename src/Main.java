@@ -1,6 +1,10 @@
 import java.util.Scanner;
 
 public class Main {
+
+  public static void clearScreen() {
+    for (int i = 0; i < 50; ++i) System.out.println();
+  }
   public static void main(String[] args) {
     UpravljanjeRezervacijama rezervacije = new UpravljanjeRezervacijama();
     UpravljanjeKorisnicima korisnici = rezervacije.korisnici;
@@ -9,6 +13,7 @@ public class Main {
 
     while (true) {
       // Main Menu
+      clearScreen();
       System.out.println("[K]orisnici");
       System.out.println("[V]ozila");
       System.out.println("[R]ezervacije");
@@ -33,6 +38,7 @@ public class Main {
           do {
             // MENU KORISNIKA
             if(korisnikMenu.isEmpty()){
+              clearScreen();
               System.out.println("[P]rikazi korisnike");
               System.out.println("[D]odaj korisnika");
               System.out.println("[B]ack");
@@ -42,6 +48,7 @@ public class Main {
 
             switch (korisnikMenu) {
               case "P":
+                clearScreen();
                 korisnici.prikaziKorisnike();
                 System.out.println("[A]zuriraj korisnika");
                 System.out.println("[I]zbrisi korisnika");
@@ -80,6 +87,7 @@ public class Main {
         case "V":
           do {
             // MENU VOZILA
+            clearScreen();
             System.out.println("[P]rikazi vozilo");
             System.out.println("[D]odaj vozilo");
             System.out.println("[B]ack");
@@ -88,6 +96,7 @@ public class Main {
 
             switch (voziloMenu) {
               case "P":
+                clearScreen();
                 vozila.prikaziVozila();
                 System.out.println("[A]zuriraj vozilo");
                 System.out.println("[I]zbrisi vozilo");
@@ -152,6 +161,7 @@ public class Main {
         case "R":
           do {
             // MENU REZERVACIJA
+//            clearScreen();
             System.out.println("[P]rikazi rezervacije");
             System.out.println("[D]odaj rezervacije");
             System.out.println("[B]ack");
@@ -160,6 +170,7 @@ public class Main {
 
             switch (rezervacijaMenu) {
               case "P":
+                clearScreen();
                 rezervacije.prikaziRezervacije();
                 System.out.println("[I]zbrisi rezervaciju");
                 System.out.println("[B]ack");
